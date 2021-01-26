@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+5.times do |i|
+  Exercise.create!(name: FFaker::Name.first_name, sets: FFaker::Random.rand(1..9), duration: FFaker::Random.rand(1..60), effort_level: FFaker::Random.rand(1..5))
+  Workout.create!
+end

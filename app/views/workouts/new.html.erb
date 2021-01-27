@@ -1,0 +1,31 @@
+<%= render "shared/title", title: "Daily Workout" %>
+
+<div class="row">
+  <div class="col-12 col-md-7 space">
+    <div class="card border-primary col-12 col-md-11">
+      <div class="card-body">
+        <h5 class="card-title">
+          <u>Latest Workouts</u>
+        </h5>
+        <p class="card-text">
+          <hr />
+          <%= link_to "Lorem ipsum dolor.", "#" %>
+          <br />
+          <%= link_to "Lorem ipsum dolor.", "#" %>
+          <br />
+          <%= link_to "Lorem ipsum dolor.", "#" %>
+          <br />
+          <%= link_to "Lorem ipsum dolor.", "#" %>
+          <br />
+          <%= link_to "Lorem ipsum dolor.", "#" %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-5 space">
+    <%= form_for([@workout]) do |f| %>
+      <%= f.submit "Generate daily Workout", class: "btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+</div>

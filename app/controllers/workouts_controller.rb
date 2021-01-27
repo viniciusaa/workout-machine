@@ -5,9 +5,7 @@ class WorkoutsController < ApplicationController
   end
 
   def new
-    if Workout.any? && Workout.last.created_at.to_date == DateTime.now.to_date
-      redirect_to workout_path(Workout.last)
-    end
+    redirect_to workout_path(Workout.last) if Workout.any? && Workout.last.created_at.to_date == DateTime.now.to_date
 
     @workout = Workout.new
   end

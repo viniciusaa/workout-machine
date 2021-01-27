@@ -9,15 +9,10 @@
         </h5>
         <p class="card-text">
           <hr />
-          <%= link_to "Lorem ipsum dolor.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor.", "#" %>
+          <% Workout.last(7).each do |workout| %>
+            <%= link_to workout.created_at.strftime("%d/%m/%Y"), workout_path(workout) %>
+            <br />
+          <% end %>
         </p>
       </div>
     </div>

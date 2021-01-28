@@ -9,19 +9,10 @@
         </h5>
         <p class="card-text">
           <hr />
-          <%= link_to "Lorem ipsum dolor sit amet.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor sit amet.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor sit amet.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor sit amet.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor sit amet.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor sit amet.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor sit amet.", "#" %>
+          <% @workout.exercises.each do |exercise| %>
+            <%= exercise.name %>
+            <br />
+          <% end %>
         </p>
       </div>
     </div>

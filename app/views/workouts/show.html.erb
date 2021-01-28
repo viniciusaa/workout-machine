@@ -1,7 +1,7 @@
-<%= render "shared/title", title: "Daily Workout" %>
+<%= render "shared/title", title: "Date #{@workout.created_at.strftime("%d/%m/%Y")} Workout" %>
 
 <div class="row">
-  <div class="col-12 col-sm-6 space">
+  <div class="col-12 col-sm-6 center space">
     <div class="card border-primary col-12 col-lg-11">
       <div class="card-body">
         <p class="card-text">
@@ -18,25 +18,6 @@
           <%= link_to "Lorem ipsum dolor sit amet.", "#" %>
           <br />
           <%= link_to "Lorem ipsum dolor sit amet.", "#" %>
-          <br />
-          <%= link_to "Lorem ipsum dolor sit amet.", "#" %>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-12 col-sm-6 space">
-    <div class="card border-primary col-12 col-lg-11">
-      <div class="card-body">
-        <h5 class="card-title">
-          <u>Latest Workouts</u>
-        </h5>
-        <p class="card-text">
-          <hr />
-          <% Workout.last(7).each do |workout| %>
-            <%= link_to workout.created_at.strftime("%d/%m/%Y"), workout_path(workout) %>
-            <br />
-          <% end %>
         </p>
       </div>
     </div>

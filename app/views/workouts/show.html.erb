@@ -1,12 +1,15 @@
 <%= render "shared/title", title: "Date #{@workout.created_at.strftime("%d/%m/%Y")} Workout" %>
 
 <div class="row">
-  <div class="col-12 col-sm-6 center space">
+  <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 center space">
     <div class="card border-primary col-12 col-lg-11">
       <div class="card-body">
         <p class="card-text">
           <% @workout.exercises.each do |exercise| %>
-            <%= exercise.name %>
+            <%= exercise.sets %> x
+            <u><%= link_to exercise.name, "#", class: "text-dark" %> </u> -
+            <%= exercise.duration %> min -
+            Difficulty:<%= exercise.effort_level %>
             <br />
           <% end %>
         </p>

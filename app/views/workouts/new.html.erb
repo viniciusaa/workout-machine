@@ -1,16 +1,21 @@
 <%= render "shared/title", title: "Daily Workout" %>
 
 <div class="row">
-  <div class="col-12 col-sm-6 center space">
+  <div class="col-12 col-md-6 center space">
     <div class="card border-primary col-12 col-lg-11">
       <div class="card-body">
         <h5 class="card-title">
-          <%= @workout.created_at.strftime("%d/%m/%Y") %>
+          <b><%= @workout.created_at.strftime("%d/%m/%Y") %></b>
+          <br />
+          <small>good training!</small>
         </h5>
         <p class="card-text">
           <hr />
           <% @workout.exercises.each do |exercise| %>
-            <%= exercise.name %>
+            <%= exercise.sets %> x
+            <u><%= link_to exercise.name, "#", class: "text-dark" %> </u> -
+            <%= exercise.duration %> min -
+            Difficulty:<%= exercise.effort_level %>
             <br />
           <% end %>
         </p>
@@ -18,16 +23,16 @@
     </div>
   </div>
 
-  <div class="col-12 col-sm-6 center space">
+  <div class="col-12 col-md-6 center space">
     <div class="card border-primary col-12 col-lg-11">
       <div class="card-body">
         <h5 class="card-title">
-          <u>Latest Workouts</u>
+          <b>Latest Workouts</b>
         </h5>
         <p class="card-text">
           <hr />
           <% Workout.last(7).each do |workout| %>
-            <%= link_to workout.created_at.strftime("%d/%m/%Y"), workout_path(workout) %>
+            <%= link_to workout.created_at.strftime("%d/%m/%Y"), workout_path(workout), class: "text-dark" %>
             <br />
           <% end %>
         </p>

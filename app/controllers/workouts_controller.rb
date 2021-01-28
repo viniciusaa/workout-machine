@@ -7,5 +7,7 @@ class WorkoutsController < ApplicationController
   def new
     Workout.all.find { |workout| @workout = workout if workout.created_at.to_date == DateTime.now.to_date }
     @workout ||= Workout.create
+
+    Exercise.all.sample(6).select { |exercise| @workout.exercises << exercise } if @workout.exercises.empty?
   end
 end

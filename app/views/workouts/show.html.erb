@@ -5,13 +5,7 @@
     <div class="card border-primary col-12 col-lg-11">
       <div class="card-body">
         <p class="card-text">
-          <% @workout.exercises.each do |exercise| %>
-            <%= exercise.sets %> x
-            <u><%= link_to exercise.name, "#", class: "text-dark" %> </u> -
-            <%= exercise.duration %> min -
-            Difficulty:<%= exercise.effort_level %>
-            <br />
-          <% end %>
+          <%= render "exercise_list" %>
         </p>
       </div>
     </div>

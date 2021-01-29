@@ -25,7 +25,7 @@
         </h5>
         <p class="card-text">
           <hr />
-          <% Workout.last(7).each do |workout| %>
+          <% @latest_workouts.each do |workout| %>
             <%= link_to workout.created_at.strftime("%d/%m/%Y"), workout_path(workout), class: "text-dark" %>
             <br />
           <% end %>

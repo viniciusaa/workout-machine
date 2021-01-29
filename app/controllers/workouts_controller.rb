@@ -9,5 +9,7 @@ class WorkoutsController < ApplicationController
     @workout ||= Workout.create
 
     Exercise.all.sample(6).select { |exercise| @workout.exercises << exercise } if @workout.exercises.empty?
+
+    @latest_workouts = Workout.order(created_at: :desc).first(7)
   end
 end

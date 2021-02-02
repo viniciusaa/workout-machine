@@ -1,6 +1,6 @@
 # Will be able to store a list of exercises
 class ExercisesController < ApplicationController
-  before_action :set_exercise, only: [:edit, :show]
+  before_action :set_exercise, only: [:edit, :show, :destroy]
 
   def show; end
 
@@ -25,6 +25,11 @@ class ExercisesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @exercise.destroy
+    redirect_to new_workout_path
   end
 
   private

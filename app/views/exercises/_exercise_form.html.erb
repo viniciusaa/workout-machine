@@ -1,0 +1,41 @@
+<%= form_for @exercise do |f| %>
+  <div class="space space-top">
+    <div class="row col-12">
+      <b><%= f.label :name %>:</b>
+    </div>
+    <div class="row col-md-8 col-lg-6">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="space space-top">
+    <div class="row col-12">
+      <b><%= f.label :sets %>:</b>
+    </div>
+    <div class="row col-md-8 col-lg-6">
+      <%= f.number_field :sets, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="space space-top">
+    <div class="row col-12">
+      <b><%= f.label :duration %> (minutes):</b>
+    </div>
+    <div class="row col-md-8 col-lg-6">
+      <%= f.number_field :duration, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="space space-top">
+    <div class="row col-12">
+      <b><%= f.label :difficulty %> (1 to 5):</b>
+    </div>
+    <div class="row col-md-8 col-lg-6">
+      <%= f.number_field :effort_level, max: 5, min: 1, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row col-12">
+    <%= f.submit "Confirm", class: "btn btn-primary" %>
+  </div>
+<% end %>

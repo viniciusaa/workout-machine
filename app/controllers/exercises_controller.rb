@@ -5,7 +5,7 @@ class ExercisesController < ApplicationController
   def show; end
 
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.all.paginate(page: params[:page], per_page: 10)
   end
 
   def new

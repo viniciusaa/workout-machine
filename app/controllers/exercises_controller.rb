@@ -1,6 +1,6 @@
 # Will be able to store a list of exercises
 class ExercisesController < ApplicationController
-  before_action :set_exercise, only: [:edit, :show, :destroy]
+  before_action :set_exercise, only: [:edit, :update, :show, :destroy]
 
   def show; end
 

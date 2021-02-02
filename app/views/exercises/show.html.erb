@@ -1,0 +1,42 @@
+<%= render "shared/title", title: "Exercise" %>
+
+<div class="row">
+  <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 center space">
+    <div class="card border-primary col-12 col-lg-11">
+      <div class="card-body">
+        <h4 class="card-text">
+          Name: <%= @exercise.name %>
+          <br />
+          Sets:
+          <% if @exercise.sets? %>
+            <%= @exercise.sets %>
+          <% else %>
+            Not defined
+          <% end %>
+
+          <br />
+          Duration:
+          <% if @exercise.duration? %>
+            <%= @exercise.duration %> min
+          <% else %>
+            Not defined
+          <% end %>
+
+          <br />
+          Difficulty:
+          <% if @exercise.effort_level? %>
+            <%= @exercise.effort_level %>
+          <% else %>
+            Not defined
+          <% end %>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 space">
+    <%= link_to "Edit", edit_exercise_path(@exercise), class: "btn btn-primary" %>
+    <%= link_to "Back", new_exercise_path, class: "btn btn-primary" %>
+  </div>
+</div>

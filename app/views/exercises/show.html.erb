@@ -34,9 +34,16 @@
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 sspace">
+    <%= link_to "Edit", edit_exercise_path(@exercise), class: "btn btn-primary" %>
+    <%= link_to "Delete", exercise_path(@exercise),method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 space">
-    <%= link_to "Edit", edit_exercise_path(@exercise), class: "btn btn-primary" %>
-    <%= link_to "Back", new_exercise_path, class: "btn btn-primary" %>
+    <%= link_to "Back to daily workout", new_workout_path, class: "btn btn-primary" %>
   </div>
 </div>

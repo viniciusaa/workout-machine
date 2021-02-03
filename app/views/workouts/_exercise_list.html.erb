@@ -1,6 +1,6 @@
 <% @workout.exercises.each do |exercise| %>
   <%= exercise.sets %> x
-  <u><%= link_to exercise.name, "#", class: "text-dark" %> </u> -
+  <u><%= link_to exercise.name, exercise_path(exercise), class: "text-dark" %> </u> -
   <%= exercise.duration %> min -
   Difficulty: <%= exercise.effort_level %>
   <br />

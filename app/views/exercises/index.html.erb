@@ -1,6 +1,6 @@
 <%= render "shared/title", title: "Exercises List" %>
 
-<div class="offset-md-1 offset-lg-2 space">
+<div class="offset-md-1 offset-lg-2 mspace">
   <%= link_to "Back to daily workout", new_workout_path, class: "btn btn-primary" %>
 </div>
 
@@ -41,8 +41,8 @@
               <% end %>
               <br />
               <div class="col-12 col-sm-7 col-xl-5">
-                <%= link_to "Display", exercise_path(exercise), class: "btn btn-primary" %>
-                <%= link_to "Edit", edit_exercise_path(exercise), class: "btn btn-primary" %>
+                <%= link_to "Display", exercise_path(exercise), class: "btn btn-primary sspace" %>
+                <%= link_to "Edit", edit_exercise_path(exercise), class: "btn btn-primary sspace" %>
                 <%= link_to "Delete", exercise_path(exercise),method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
               </div>
             </p>
@@ -51,4 +51,12 @@
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="space offset-4 offset-md-5 mspace">
+  <%= will_paginate @exercises %>
+</div>
+
+<div class="offset-md-1 offset-lg-2 mspace">
+  <%= link_to "Back to daily workout", new_workout_path, class: "btn btn-primary" %>
 </div>

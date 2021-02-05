@@ -15,4 +15,10 @@ class WorkoutsController < ApplicationController
     @workout.exercises << Exercise.all.sample(6)
     redirect_to workout_path(@workout)
   end
+
+  def destroy
+    @workout = Workout.find(params[:id])
+    @workout.destroy
+    self.create
+  end
 end

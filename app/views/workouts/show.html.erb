@@ -1,16 +1,62 @@
-<%= render "shared/title", title: "Date #{@workout.created_at.strftime("%d/%m/%Y")} Workout" %>
+<% if DailyWorkout.new(@workout).todays_workout? %>
+  <%= render "shared/title", title: "Daily Workout" %>
 
-<div class="row">
-  <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 center space">
-    <div class="card border-primary col-12 col-lg-11">
-      <div class="card-body">
-        <p class="card-text">
-          <%= render "exercise_list" %>
-        </p>
+  <div class="row">
+    <div class="col-12 col-md-6 center space">
+      <div class="card border-primary col-12 col-lg-11">
+        <div class="card-body">
+          <h5 class="card-title">
+            <b><%= @workout.created_at.strftime("%d/%m/%Y") %></b>
+            <br />
+            <small>good training!</small>
+          </h5>
+          <p class="card-text">
+            <hr />
+            <%= render "exercise_list" %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 center space">
+      <div class="card border-primary col-12 col-lg-11">
+        <div class="card-body">
+          <h5 class="card-title">
+            <b>Latest Workouts</b>
+          </h5>
+          <p class="card-text">
+            <hr />
+            <% @latest_workouts.each do |workout| %>
+              <%= link_to workout.created_at.strftime("%d/%m/%Y"), workout_path(workout), class: "text-dark" %>
+              <br />
+            <% end %>
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="offset-md-1 offset-lg-2 space">
-  <%= link_to "Back to daily workout", new_workout_path, class: "btn btn-primary" %>
-</div>
+
+  <div class="col-12 space">
+    <%= link_to "Add new exercise", new_exercise_path, class: "btn btn-primary" %>
+  </div>
+  <div class="col-12 mspace">
+    <%= link_to "Check all exercises", exercises_path, class: "btn btn-primary" %>
+  </div>
+<% else %>
+  <%= render "shared/title", title: "Date #{@workout.created_at.strftime("%d/%m/%Y")} Workout" %>
+
+  <div class="row">
+    <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 center space">
+      <div class="card border-primary col-12 col-lg-11">
+        <div class="card-body">
+          <p class="card-text">
+            <%= render "exercise_list" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offset-md-1 offset-lg-2 space">
+    <%= link_to "Back to daily workout", new_workout_path, class: "btn btn-primary" %>
+  </div>
+<% end %>

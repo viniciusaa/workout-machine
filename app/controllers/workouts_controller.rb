@@ -12,4 +12,6 @@ class WorkoutsController < ApplicationController
 
     @latest_workouts = Workout.order(created_at: :desc).first(7)
   end
+
+  def create; end
 end

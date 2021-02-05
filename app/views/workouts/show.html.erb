@@ -14,7 +14,7 @@
             <hr />
             <%= render "exercise_list" %>
             <div class="row col-12 mspace-top">
-              <%= link_to "Remake Workout", "#", class: "btn btn-primary" %>
+              <%= link_to "Remake Workout", workout_path(@workout), method: :delete, class: "btn btn-primary" %>
             </div>
           </p>
         </div>

@@ -1,7 +1,8 @@
 # Will be able to store a list of exercises
 class WorkoutsController < ApplicationController
+  before_action :set_workout, only: [:show, :update]
+
   def show
-    @workout = Workout.find(params[:id])
     @latest_workouts = Workout.order(created_at: :desc).first(7)
   end
 
@@ -12,13 +13,23 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = Workout.create
-    @workout.exercises << Exercise.all.sample(6)
+    add_exercises(@workout)
     redirect_to workout_path(@workout)
   end
 
-  def destroy
+  def update
+    @workout.exercises.clear
+    add_exercises(@workout)
+    redirect_to workout_path(@workout)
+  end
+
+  private
+
+  def set_workout
     @workout = Workout.find(params[:id])
-    @workout.destroy
-    self.create
+  end
+
+  def add_exercises(workout)
+    workout.exercises << Exercise.all.sample(6)
   end
 end

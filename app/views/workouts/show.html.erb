@@ -1,4 +1,4 @@
-<% if DailyWorkout.new(@workout).todays_workout? %>
+<% if @workout.todays_workout? %>
   <%= render "shared/title", title: "Daily Workout" %>
 
   <div class="row">

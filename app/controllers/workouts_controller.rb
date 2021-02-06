@@ -7,19 +7,19 @@ class WorkoutsController < ApplicationController
   end
 
   def index
-    Workout.all.find { |workout| @workout = workout if DailyWorkout.new(workout).todays_workout? }
+    Workout.all.find { |workout| @workout = workout if workout.todays_workout? }
     @workout.nil?? self.create : (redirect_to workout_path(@workout))
   end
 
   def create
     @workout = Workout.create
-    add_exercises(@workout)
+    @workout.add_exercises
     redirect_to workout_path(@workout)
   end
 
   def update
     @workout.exercises.clear
-    add_exercises(@workout)
+    @workout.add_exercises
     redirect_to workout_path(@workout)
   end
 
@@ -27,9 +27,5 @@ class WorkoutsController < ApplicationController
 
   def set_workout
     @workout = Workout.find(params[:id])
-  end
-
-  def add_exercises(workout)
-    workout.exercises << Exercise.all.sample(6)
   end
 end

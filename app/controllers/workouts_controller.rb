@@ -5,7 +5,7 @@ class WorkoutsController < ApplicationController
     @latest_workouts = Workout.order(created_at: :desc).first(7)
   end
 
-  def new
+  def index
     Workout.all.find { |workout| @workout = workout if DailyWorkout.new(workout).todays_workout? }
     @workout.nil?? self.create : (redirect_to workout_path(@workout))
   end

@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "Edit exercise", type: :feature do
   before do
     @exercise = create(:exercise)
-    visit new_workout_path
+    visit workouts_path
     click_link @exercise.name
     click_link "Edit"
   end

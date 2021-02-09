@@ -5,7 +5,7 @@ RSpec.feature "List all exercises", type: :feature do
     @first_exercise = create(:exercise)
     @second_exercise = create(:exercise)
     @third_exercise = create(:exercise)
-    visit new_workout_path
+    visit workouts_path
     click_link "Check all exercises"
     expect(page).to have_content("Name: #{@first_exercise.name}")
     expect(page).to have_content("Name: #{@second_exercise.name}")

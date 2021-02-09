@@ -1,4 +1,3 @@
-# Will be able to store a list of exercises
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: [:edit, :update, :show, :destroy]
 
@@ -33,7 +32,7 @@ class ExercisesController < ApplicationController
 
   def destroy
     @exercise.destroy
-    redirect_to new_workout_path
+    redirect_to workouts_path
   end
 
   private

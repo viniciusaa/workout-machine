@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Create exercise", type: :feature do
   before do
-    visit new_workout_path
+    visit workouts_path
     click_link "Add new exercise"
   end
 

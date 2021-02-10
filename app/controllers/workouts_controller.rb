@@ -7,13 +7,8 @@ class WorkoutsController < ApplicationController
 
   def index
     Workout.all.find { |workout| @workout = workout if workout.todays_workout? }
-    @workout.nil? ? create : (redirect_to workout_path(@workout))
-  end
-
-  def create
-    @workout = Workout.create
-    @workout.add_exercises
-    redirect_to workout_path(@workout)
+    CreateWorkoutService.create if @workout.nil?
+    redirect_to workout_path(Workout.last)
   end
 
   def update

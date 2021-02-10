@@ -5,6 +5,6 @@ class RemakeWorkoutService
 
   def remake
     @workout.exercises.clear
-    @workout.add_exercises
+    FullfilWorkoutService.new(@workout).add_exercises
   end
 end

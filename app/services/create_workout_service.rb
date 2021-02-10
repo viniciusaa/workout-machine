@@ -1,6 +1,6 @@
 class CreateWorkoutService
   def self.create
     workout = Workout.create
-    workout.add_exercises
+    FullfilWorkoutService.new(workout).add_exercises
   end
 end

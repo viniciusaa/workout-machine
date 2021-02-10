@@ -1,4 +1,4 @@
-<% if @workout.todays_workout? %>
+<% if @workout.created_at.to_date == DateTime.now.to_date %>
   <%= render "shared/title", title: "Daily Workout" %>
 
   <div class="row">

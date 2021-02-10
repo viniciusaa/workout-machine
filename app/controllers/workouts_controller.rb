@@ -7,14 +7,12 @@ class WorkoutsController < ApplicationController
 
   def index
     Workout.all.find { |workout| @workout = workout if workout.todays_workout? }
+    
     CreateWorkoutService.create if @workout.nil?
-    redirect_to workout_path(Workout.last)
-  end
 
-  def update
-    @workout.exercises.clear
-    @workout.add_exercises
-    redirect_to workout_path(@workout)
+    RemakeWorkoutService.new(@workout).remake if params[:remake]
+
+    redirect_to workout_path(Workout.last)
   end
 
   private

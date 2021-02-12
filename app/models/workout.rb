@@ -4,8 +4,4 @@ class Workout < ApplicationRecord
   def todays_workout?
     created_at.to_date == DateTime.now.to_date
   end
-
-  def add_exercises
-    exercises << Exercise.all.sample(6)
-  end
 end

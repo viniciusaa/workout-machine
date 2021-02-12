@@ -12,8 +12,7 @@ class WorkoutsController < ApplicationController
   end
 
   def update
-    @workout.exercises.clear
-    @workout.add_exercises
+    UpdateWorkoutService.new(@workout).update
     redirect_to workout_path(@workout)
   end
 

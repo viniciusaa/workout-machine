@@ -7,12 +7,7 @@ class WorkoutsController < ApplicationController
 
   def index
     @workout = Workout.find_by(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
-    @workout.nil? ? create : (redirect_to workout_path(@workout))
-  end
-
-  def create
-    @workout = Workout.create
-    @workout.add_exercises
+    @workout ||= CreateWorkoutService.create
     redirect_to workout_path(@workout)
   end
 

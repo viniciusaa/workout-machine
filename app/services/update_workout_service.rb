@@ -5,6 +5,6 @@ class UpdateWorkoutService
 
   def update
     @workout.exercises.clear
-    @workout.add_exercises
+    CompleteWorkoutService.new(@workout).add_exercises
   end
 end

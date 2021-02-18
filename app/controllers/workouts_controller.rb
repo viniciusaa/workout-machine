@@ -12,7 +12,7 @@ class WorkoutsController < ApplicationController
   end
 
   def update
-    UpdateWorkoutService.new(@workout).update
+    @workout.reset_exercises!
     redirect_to workout_path(@workout)
   end
 

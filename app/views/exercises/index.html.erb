@@ -12,7 +12,7 @@
   <% @exercises.each do |exercise| %>
     <div class="row">
       <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 center space">
-        <div class="card border-primary col-12 col-lg-11">
+        <div class="card border-primary col-12 offset-lg-1 col-lg-10">
           <div class="card-body">
             <p class="card-text">
               Name: <%= exercise.name %>
@@ -40,7 +40,7 @@
                 Not defined
               <% end %>
               <br />
-              <div class="col-12 col-sm-7 col-xl-5">
+              <div class="col-12 col-md-6 col-lg-7 col-xl-6">
                 <%= link_to "Display", exercise_path(exercise), class: "btn btn-primary sspace" %>
                 <%= link_to "Edit", edit_exercise_path(exercise), class: "btn btn-primary sspace" %>
                 <%= link_to "Delete", exercise_path(exercise),method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>

@@ -14,4 +14,11 @@ RSpec.feature "Edit exercise", type: :feature do
 
     expect(page).to have_content("Name: TestName")
   end
+
+  scenario "with invalid entries" do
+    fill_in "Name", with: ""
+    click_button "Confirm"
+
+    expect(page).to have_content("Name can't be blank")
+  end
 end

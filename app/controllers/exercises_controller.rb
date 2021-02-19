@@ -51,10 +51,10 @@ class ExercisesController < ApplicationController
   end
 
   def flash_success(action)
-    flash[:success] = "Exercise successfully " + action
+    flash[:success] = "Exercise successfully #{action}"
   end
 
   def flash_danger(action)
-    flash[:danger] = "Failed to " + action + " exercise"
+    flash[:danger] = "Failed to #{action} exercise"
   end
 end

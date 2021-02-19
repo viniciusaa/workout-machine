@@ -14,6 +14,7 @@ class WorkoutsController < ApplicationController
   def update
     @workout.reset_exercises!
     redirect_to workout_path(@workout)
+    flash[:success] = "Exercises switched"
   end
 
   private

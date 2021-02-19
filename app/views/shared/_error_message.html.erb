@@ -1,15 +1,17 @@
 <% if obj.errors.any? %>
-    <div class="col-lg-8 card border-danger mspace">
-      <div class="card-body text-danger">
-        <h4 class="card-title">
-          <%= pluralize(obj.errors.count, "error") %>
-          prohibited this <%= obj.class %> from being saved:
-        </h4>
-        <ul class="card-text">
-          <% obj.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+  <div class="col-lg-8 card border-danger mspace">
+    <div class="card-header text-danger">
+      <h4 class="card-title">
+        <%= pluralize(obj.errors.count, "error") %>
+        prohibited this <%= obj.class %> from being saved:
+      </h4>
     </div>
+    <div class="card-body text-danger">
+      <ul class="card-text">
+        <% obj.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 <% end %>
